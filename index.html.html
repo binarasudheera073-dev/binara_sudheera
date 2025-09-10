@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binara Sudheera</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: #2980b9;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            color: white;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding-top: 150px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 2;
+        }
+        
+        .profile-img {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .profile-img img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #3498db;
+        }
+        
+        /* Experience Section */
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .experience-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .experience-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .experience-card h3 {
+            color: #3498db;
+        }
+        
+        .experience-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .experience-card .date {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .skill-category {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .skill-name {
+            font-weight: 500;
+        }
+        
+        .skill-level {
+            font-size: 14px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background-color: #ecf0f1;
+        }
+        
+        .beginner {
+            background-color: #e8f4fc;
+            color: #3498db;
+        }
+        
+        .experienced {
+            background-color: #e7f6e9;
+            color: #27ae60;
+        }
+        
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .education-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .education-card h3 {
+            color: #3498db;
+        }
+        
+        .education-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .education-card .date {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-item {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-item i {
+            margin-right: 10px;
+            color: #3498db;
+            font-size: 20px;
+            width: 30px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            margin-bottom: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 24px;
+            margin: 0 10px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Binara Sudheera</div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Binara Sudheera</h1>
+            <p>Assistant Social Media Manager </p>
+            <a href="#contact" class="btn">Get in Touch</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello, I'm Binara Sudheera. I am currently an undergraduate at Saegis Campus, pursuing a Degree in Data Analytics. Alongside my studies, I am the founder of SBR Marketing, a social media marketing company, and I am a becoming Social Media Manager. Social media management is a key career path for me. I also plan to take on freelance projects in the future.</p>
+                    <p>I have been actively involved with AIESEC at Saegis Campus, serving as OCVP for the Explore Event. I am passionate about building a career in both IT and social media management and continuously seek opportunities to grow professionally.</p>
+                    <p>I am currently doing the Meta Social Media Marketing course on Coursera to further enhance my skills in social media marketing.</p>
+                </div>
+                <div class="profile-img">
+                    <img src="C:\Users\LENOVO\OneDrive\Pictures\Personal\P.jpg" alt="Binara Sudheera" style="width:500px;height:auto;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" style="background-color: #f4f7fc;">
+        <div class="container">
+            <h2>Experience & Volunteering</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3>Founder & Owner</h3>
+                    <h4>SBR Marketing (Self-Employed)</h4>
+                    <span class="date">August 2025 - Present</span>
+                    <p>Established a social media marketing company offering digital solutions to small and medium businesses & manage campaigns, content creation, and brand growth strategies.</p>
+                </div>
+                <div class="experience-card">
+                    <h3>OCvP</h3>
+                    <h4>Xplore 2025, AIESEC in Saegis</h4>
+                    <span class="date">April 2025 - July 2025</span>
+                    <p>The Explore event taught me how to effectively promote an event on social media to reach the right audience.</p>
+                </div>
+                <div class="experience-card">
+                    <h3>Brand Marketing</h3>
+                    <h4>AIESEC in Saegis</h4>
+                    <span class="date">February 2025 - July 2025</span>
+                    <p>Developed marketing content for campaigns and events at AIESEC.</p>
+                </div>
+                <div class="experience-card">
+                    <h3>Outgoing Global Talent</h3>
+                    <h4>AIESEC in Saegis</h4>
+                    <span class="date">February 2025 - July 2025</span>
+                    <p>Promoted overseas internship opportunities and guided students through the application process.</p>
+                </div>
+                <div class="experience-card">
+                    <h3>Student Forum</h3>
+                    <h4>Saegis Campus</h4>
+                    <span class="date">July 2024 - Present · 1 yr 3 mos</span>
+                    <p>Active participation in campus student forum activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3>S.T. Joseph Boys' College, Nugegoda</h3>
+                    <span class="date">Jan 2013 – May 2024</span>
+                </div>
+                <div class="education-card">
+                    <h3>Foundation Course</h3>
+                    <h4>Saegis Campus</h4>
+                    <span class="date">Jul 2024 – Apr 2025</span>
+                    <p>Completed, Certificate Pending</p>
+                </div>
+                <div class="education-card">
+                    <h3>HND in Data Analytics</h3>
+                    <h4>Saegis Campus</h4>
+                    <span class="date">Present - May 2025</span>
+                </div>
+                <div class="education-card">
+                    <h3>Meta Social Media Marketing Professional Certificate</h3>
+                    <h4>Coursera</h4>
+                    <span class="date">In Progress - Aug 2025</span>
+                </div>
+                <div class="education-card">
+                    <h3>Computer Certificate Course</h3>
+                    <h4>BCCA Computer Training Centre, Sri Lanka</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" style="background-color: #f4f7fc;">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Social Media & Marketing</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">Social Media Management</div>
+                        <div class="skill-level beginner">Beginner</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Brand Marketing</div>
+                        <div class="skill-level beginner">Beginner</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Content Creation</div>
+                        <div class="skill-level beginner">Beginner</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Event Management</div>
+                        <div class="skill-level beginner">Beginner</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Design & Technical</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">Adobe Photoshop</div>
+                        <div class="skill-level experienced">Experienced</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">Canva</div>
+                        <div class="skill-level experienced">Experienced</div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <div class="skill-item">
+                        <div class="skill-name">Sinhala</div>
+                        <div class="skill-level experienced">Fluent</div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">English</div>
+                        <div class="skill-level experienced">Proficient</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0741755702</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>binarasudheera05l@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Pillyandala</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <span><a href="http://linkedin.com/in/binara-sudheera-323b9a344" target="_blank">linkedin.com/in/binara-sudheera</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="http://linkedin.com/in/binara-sudheera-323b9a344" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:binarasudheera05l@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2025 Binara Sudheera. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
