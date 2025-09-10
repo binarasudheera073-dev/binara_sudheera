@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Binara Sudheera</title>
+    <title>Binara Sudheera - Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Global Styles */
@@ -18,6 +18,7 @@
             line-height: 1.6;
             color: #333;
             background-color: #f9f9f9;
+            scroll-behavior: smooth;
         }
         
         .container {
@@ -248,6 +249,93 @@
             display: block;
         }
         
+        /* Works Section */
+        .works-section {
+            background-color: #f4f7fc;
+            text-align: center;
+        }
+        
+        .works-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .drive-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #0F9D58 0%, #1e8e3e 100%);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(15, 157, 88, 0.3);
+            margin: 20px 0;
+        }
+        
+        .drive-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(15, 157, 88, 0.4);
+            background: linear-gradient(135deg, #1e8e3e 0%, #0F9D58 100%);
+        }
+        
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
+        .work-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .work-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .work-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .work-content {
+            padding: 20px;
+        }
+        
+        .work-content h3 {
+            color: #3498db;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .work-content p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .work-category {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: #ecf0f1;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-top: 10px;
+            color: #7f8c8d;
+        }
+        
         /* Contact Section */
         .contact-container {
             display: grid;
@@ -302,6 +390,28 @@
             .nav-links {
                 display: none;
             }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .works-filter {
+                gap: 8px;
+            }
+            
+            .filter-btn, .drive-btn {
+                padding: 6px 12px;
+                font-size: 14px;
+            }
+            
+            .drive-btn {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -316,6 +426,7 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#skills">Skills</a></li>
+                    <li><a href="#works">My Works</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -326,7 +437,7 @@
     <section class="hero">
         <div class="container">
             <h1>Binara Sudheera</h1>
-            <p>Assistant Social Media Manager </p>
+            <p>Assistant Social Media Manager & Digital Marketer</p>
             <a href="#contact" class="btn">Get in Touch</a>
         </div>
     </section>
@@ -342,7 +453,7 @@
                     <p>I am currently doing the Meta Social Media Marketing course on Coursera to further enhance my skills in social media marketing.</p>
                 </div>
                 <div class="profile-img">
-                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQEYSm-OVaqdbw/profile-displayphoto-crop_800_800/B4EZkLL2sEGYAI-/0/1756829281714?e=1760572800&v=beta&t=db6kDT8JVybAtO7Lj1VL9CcvnolsZNVIJ7gNam8ZP30" alt="Binara Sudheera" style="width:500px;height:auto;">
+                    <img src="https://media.licdn.com/dms/image/v2/D4E03AQEYSm-OVaqdbw/profile-displayphoto-crop_800_800/B4EZkLL2sEGYAI-/0/1756829281714?e=1760572800&v=beta&t=db6kDT8JVybAtO7Lj1VL9CcvnolsZNVIJ7gNam8ZP30" alt="Binara Sudheera">
                 </div>
             </div>
         </div>
@@ -470,6 +581,22 @@
         </div>
     </section>
 
+    <!-- Works Section -->
+    <section id="works" class="works-section">
+        <div class="container">
+            <h2>My Works</h2>
+            <p>Here are some examples of my social media marketing projects</p>
+            
+            <div class="works-container">
+                <p>All my social media marketing work is available on Google Drive</p>
+                <a href="https://drive.google.com/drive/folders/1F1GAxPW6hvDq8cFLAOht5OqsBF-orJ2L?usp=drive_link" target="_blank" class="drive-btn">
+                    <i class="fab fa-google-drive"></i> View All My Works on Google Drive
+                </a>
+                <p>You'll find examples of flyers, Facebook posts, video edits, stickers, and more!</p>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
@@ -510,5 +637,3 @@
     </footer>
 </body>
 </html>
-
-
