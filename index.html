@@ -2,355 +2,817 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Binara Sudheera </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Binara Sudheera - Social Media Manager & Data Analytics Undergraduate</title>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{
-font-family:Poppins,sans-serif;
-background:#020202;
-color:white;
-display:flex;
-overflow-x:hidden;
+:root {
+  --primary-color: #00ffd5;
+  --secondary-color: #0066ff;
+  --bg-dark: #020202;
+  --bg-card: linear-gradient(135deg, #0f0f0f, #002a25);
+  --bg-exp: linear-gradient(135deg, #001f1a, #001133);
+  --glass-border: rgba(0, 255, 213, 0.2);
+  --text-main: #ffffff;
+  --text-muted: #cccccc;
+  --nav-width: 250px;
 }
 
-/* RAIN FRONT */
-.logo-rain-global{
-position:fixed;
-top:0;left:0;
-width:100%;
-height:100vh;
-pointer-events:none;
-z-index:9999;
-overflow:hidden;
-}
-.logo-rain-global i{
-position:absolute;
-top:-50px;
-color:#00ffd5;
-font-size:18px;
-opacity:.6;
-animation:logoFall linear infinite;
-}
-@keyframes logoFall{
-from{transform:translateY(-100px);}
-to{transform:translateY(200vh);}
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* NAV */
-nav{
-width:250px;
-background:linear-gradient(180deg,#0a0a0a,#001f1a,#0a0a0a);
-border-right:3px solid #00ffd5;
-box-shadow:0 0 40px rgba(0,255,213,.3);
-padding:20px;
-position:fixed;
-height:100vh;
-z-index:5;
-}
-nav h1{
-font-family:Orbitron;
-text-align:center;
-color:#00ffd5;
-letter-spacing:4px;
-margin-bottom:20px;
-cursor:pointer;
-}
-nav a{
-display:block;
-padding:10px 16px;
-margin:10px 0;
-text-decoration:none;
-color:white;
-border-radius:10px;
-letter-spacing:2px;
-transition:.3s;
-background:rgba(255,255,255,.03);
-}
-nav a:hover{
-background:linear-gradient(90deg,#00ffd5,#0066ff);
-color:black;
-transform:translateX(6px);
-box-shadow:0 0 20px #00ffd5;
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
 }
 
-/* MAIN */
-main{
-margin-left:250px;
-width:100%;
-position:relative;
-z-index:2;
+html {
+  scroll-behavior: smooth;
 }
 
-/* HERO */
-.hero{
-background:url("https://iili.io/ftsuTV1.png") center/cover no-repeat;
-min-height:75vh;
-position:relative;
-display:flex;
-align-items:center;
-padding:40px;
-}
-.hero::before{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,.65);
-z-index:1;
-}
-.hero-content{
-position:relative;
-z-index:2;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
-align-items:center;
-}
-.hero-image{
-width:100%;
-max-width:400px;
-height:500px;
-object-fit:cover;
-border-radius:10px;
-box-shadow:0 0 30px rgba(0,255,213,0.5);
-}
-.hero-text h2{
-font-size:55px;
-font-family:Orbitron;
-}
-.hero-text span{color:#00ffd5;}
-.hero-text p{margin-top:10px;color:#ccc;}
-
-/* SECTIONS */
-section{
-padding:30px;
-opacity:0;
-transform:translateY(25px);
-transition:.8s;
-}
-section.show{opacity:1;transform:translateY(0);}
-section h2{
-font-family:Orbitron;
-margin-bottom:12px;
-color:#00ffd5;
-letter-spacing:3px;
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  position: relative;
+  min-height: 100vh;
 }
 
-/* GRIDS */
-.grid,.brands-grid,.exp-grid,.contact-grid{
-display:grid;
-gap:10px;
-}
-.grid{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
-.brands-grid{grid-template-columns:repeat(auto-fit,minmax(120px,1fr));}
-.exp-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));position:relative;}
-.contact-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:20px;}
-
-/* EXPERIENCE */
-.exp-box{
-background:linear-gradient(135deg,#001f1a,#001133);
-border-left:4px solid #00ffd5;
-padding:18px;
-border-radius:12px;
-position:relative;
-overflow:hidden;
-transition:.4s;
-}
-.exp-box::before{
-content:"";
-position:absolute;
-inset:0;
-background:linear-gradient(120deg,transparent,rgba(0,255,213,.25),transparent);
-opacity:0;
-transition:.4s;
-}
-.exp-box:hover::before{opacity:1;}
-.exp-box:hover{
-transform:translateY(-8px) scale(1.02);
-box-shadow:0 0 25px #00ffd5;
-}
-.exp-box h3{
-font-family:Orbitron;
-font-size:18px;
-margin-bottom:4px;
-}
-.exp-box h4{
-font-weight:400;
-color:#00ffd5;
-margin-bottom:6px;
-}
-.exp-date{
-font-size:12px;
-background:#00ffd5;
-color:black;
-padding:3px 8px;
-border-radius:20px;
-display:inline-block;
-margin-bottom:8px;
-font-weight:600;
-}
-.exp-box p{
-font-size:13px;
-color:#ccc;
-line-height:1.5;
+.logo-rain-global {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 99;
+  overflow: hidden;
 }
 
-/* CARDS */
-.card,.brand-card,.contact-card{
-padding:12px;
-border-radius:10px;
-transition:.3s;
-}
-.card{
-background:linear-gradient(135deg,#0f0f0f,#002a25);
-text-align:center;
-}
-.card:hover{transform:scale(1.05);box-shadow:0 0 20px #00ffd5;}
-.brand-card{background:#001133;text-align:center;}
-.brand-card img{max-width:80px;filter:grayscale(100%);}
-.brand-card:hover{box-shadow:0 0 20px #00ffd5;}
-.brand-card:hover img{filter:grayscale(0);}
-
-/* SLIDESHOW */
-.slideshow{max-width:400px;margin:auto;border-radius:10px;overflow:hidden;}
-.slideshow img{width:100%;display:none;}
-.slideshow img.active{display:block;}
-.digital-icons .card{
-display:flex;
-align-items:center;
-justify-content:center;
-height:120px;
+.logo-rain-global i {
+  position: absolute;
+  top: -50px;
+  color: var(--primary-color);
+  font-size: 18px;
+  opacity: .5;
+  animation: logoFall linear infinite;
 }
 
-.digital-icons .card i{
-font-size:48px;
-color:#00ffd5;
-transition:.4s;
+@keyframes logoFall {
+  from { transform: translateY(-100px) rotate(0deg); }
+  to { transform: translateY(105vh) rotate(360deg); }
 }
 
-/* Hover effect */
-.digital-icons .card:hover i{
-transform:scale(1.2);
-color:white;
-text-shadow:0 0 20px #00ffd5;
+nav {
+  width: var(--nav-width);
+  background: linear-gradient(180deg, #0a0a0a 0%, #001f1a 50%, #0a0a0a 100%);
+  border-right: 2px solid var(--primary-color);
+  box-shadow: 0 0 30px rgba(0, 255, 213, 0.25);
+  padding: 30px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* CONTACT SPORTY DESIGN */
-.contact-card{
-position:relative;
-padding:25px;
-border-radius:16px;
-background:linear-gradient(145deg,#001a17,#001133);
-text-align:center;
-overflow:hidden;
-transition:.4s;
-border:2px solid transparent;
-}
-.contact-card::before{
-content:"";
-position:absolute;
-inset:-2px;
-border-radius:16px;
-background:linear-gradient(120deg,#00ffd5,#0066ff,#00ffd5);
-z-index:-1;
-opacity:.4;
-}
-.contact-card::after{
-content:"";
-position:absolute;
-top:-100%;
-left:-100%;
-width:200%;
-height:200%;
-background:linear-gradient(120deg,transparent,rgba(255,255,255,.25),transparent);
-transform:rotate(25deg);
-transition:.6s;
+nav h1 {
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  color: var(--primary-color);
+  letter-spacing: 3px;
+  margin-bottom: 25px;
+  cursor: pointer;
+  font-size: 28px;
+  text-shadow: 0 0 15px rgba(0, 255, 213, 0.6);
 }
 
-.contact-card:hover::after{
-top:100%;
-left:100%;
-}
-.contact-card:hover{
-transform:translateY(-10px) scale(1.05);
-box-shadow:0 0 35px rgba(0,255,213,.6);
-}
-.contact-icon{
-width:70px;
-height:70px;
-margin:auto;
-margin-bottom:12px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-background:radial-gradient(circle,#00ffd5,#003d35);
-box-shadow:0 0 25px #00ffd5;
-animation:pulse 2s infinite;
-}
-.contact-icon i{
-font-size:28px;
-color:black;
-}
-@keyframes pulse{
-0%{box-shadow:0 0 15px #00ffd5;}
-50%{box-shadow:0 0 35px #00ffd5;}
-100%{box-shadow:0 0 15px #00ffd5;}
-}
-.contact-card p{
-margin-top:8px;
-font-size:14px;
-letter-spacing:1px;
-color:#ccc;
+.nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-/* Resume SECTION */
-.Resume-section{
-background:#00111a;
-border-radius:12px;
-padding:30px;
-margin:20px 0;
-}
-.Resume-section h2{
-color:#00ffd5;
-margin-bottom:8px;
-}
-.Resume-section p{
-color:#ccc;
-margin-bottom:12px;
-}
-.Resume-container{
-background:linear-gradient(135deg,#001a17,#001133);
-padding:20px;
-border-radius:12px;
-text-align:center;
-}
-.drive-btn{
-display:inline-block;
-padding:12px 18px;
-margin:10px 0;
-border-radius:12px;
-background:linear-gradient(90deg,#00ffd5,#0066ff);
-color:black;
-text-decoration:none;
-font-weight:600;
-transition:.4s;
-}
-.drive-btn i{
-margin-right:8px;
-}
-.drive-btn:hover{
-transform:scale(1.05);
-box-shadow:0 0 25px #00ffd5;
+nav a {
+  display: flex;
+  align-items: center;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: var(--text-main);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* FOOTER */
-footer{padding:10px;text-align:center;}
-footer hr{border:1px solid #00ffd5;margin-bottom:6px;}
-footer p{font-size:13px;color:#aaa;}
+nav a:hover, nav a.active {
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: #000;
+  font-weight: 600;
+  transform: translateX(6px);
+  box-shadow: 0 0 20px rgba(0, 255, 213, 0.6);
+  border-color: var(--primary-color);
+}
+
+.mobile-header {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--primary-color);
+  z-index: 1001;
+  padding: 0 16px;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 0 20px rgba(0, 255, 213, 0.2);
+}
+
+.mobile-header h1 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--primary-color);
+  font-size: 22px;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+.hamburger {
+  background: transparent;
+  border: 1px solid rgba(0, 255, 213, 0.4);
+  color: var(--primary-color);
+  font-size: 20px;
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.hamburger:active {
+  background: rgba(0, 255, 213, 0.2);
+}
+
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+main {
+  margin-left: var(--nav-width);
+  width: calc(100% - var(--nav-width));
+  max-width: calc(100% - var(--nav-width));
+  position: relative;
+  z-index: 2;
+  transition: margin 0.4s ease, width 0.4s ease;
+}
+
+.hero {
+  background: url("https://iili.io/ftsuTV1.png") center/cover no-repeat;
+  min-height: 85vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 60px 40px;
+  width: 100%;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(2,2,2,0.94) 0%, rgba(2,2,2,0.8) 50%, rgba(2,2,2,0.9) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 30px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-text {
+  width: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.hero-text h2 {
+  font-size: clamp(2rem, 5vw, 3.6rem);
+  font-family: 'Orbitron', sans-serif;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.hero-text span {
+  color: var(--primary-color);
+  text-shadow: 0 0 20px rgba(0, 255, 213, 0.4);
+  display: inline;
+}
+
+.hero-text p {
+  margin-top: 15px;
+  color: var(--primary-color);
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: 600;
+  background: rgba(0, 255, 213, 0.08);
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 30px;
+  border: 1px solid rgba(0, 255, 213, 0.3);
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.hero-image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 0 35px rgba(0, 255, 213, 0.4);
+  border: 2px solid rgba(0, 255, 213, 0.5);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 45px rgba(0, 255, 213, 0.7);
+}
+
+section {
+  padding: 50px 30px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  max-width: 1250px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+section h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(20px, 3.5vw, 30px);
+  margin-bottom: 25px;
+  color: var(--primary-color);
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  overflow-wrap: anywhere;
+}
+
+section h2::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-color), transparent);
+  opacity: 0.4;
+  min-width: 20px;
+}
+
+#aboutme p {
+  color: var(--text-muted);
+  line-height: 1.8;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.02);
+  padding: 24px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  overflow-wrap: anywhere;
+}
+
+.grid, .brands-grid, .exp-grid, .contact-grid {
+  display: grid;
+  gap: 20px;
+  width: 100%;
+}
+
+.grid {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.brands-grid {
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+
+.exp-grid {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.contact-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.exp-box {
+  background: var(--bg-exp);
+  border-left: 4px solid var(--primary-color);
+  padding: 22px;
+  border-radius: 14px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.exp-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(0, 255, 213, 0.15), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.exp-box:hover::before {
+  opacity: 1;
+}
+
+.exp-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 30px rgba(0, 255, 213, 0.4);
+  border-left-color: #fff;
+}
+
+.exp-box h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
+  margin-bottom: 6px;
+  color: #fff;
+  overflow-wrap: anywhere;
+}
+
+.exp-box h4 {
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.exp-date {
+  font-size: 11px;
+  background: var(--primary-color);
+  color: #000;
+  padding: 4px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 12px;
+  font-weight: 700;
+  align-self: flex-start;
+  letter-spacing: 0.5px;
+  max-width: 100%;
+}
+
+.exp-box p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.exp-box img {
+  width: 100%;
+  height: auto;
+  max-height: 250px;
+  object-fit: contain;
+  margin-top: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 255, 213, 0.3);
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(0, 255, 213, 0.2);
+}
+
+.card, .brand-card {
+  padding: 16px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  width: 100%;
+}
+
+.card {
+  background: var(--bg-card);
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 65px;
+  overflow-wrap: anywhere;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.brand-card {
+  background: #001133;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  min-height: 90px;
+}
+
+.brand-card img {
+  max-width: 80px;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.brand-card:hover {
+  box-shadow: 0 0 25px var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.brand-card:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.08);
+}
+
+.digital-icons {
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+.digital-icons .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  min-width: 0;
+  overflow: hidden;
+  text-decoration: none;
+  background: linear-gradient(135deg, #001a17, #001133);
+}
+
+.digital-icons .card i {
+  font-size: 44px;
+  color: var(--primary-color);
+  transition: all 0.4s ease;
+}
+
+.digital-icons .card img {
+  display: block;
+  max-width: 100%;
+  max-height: 58px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  flex-shrink: 0;
+}
+
+.digital-icons .card[aria-label="Freelancer Profile"] {
+  min-width: 0;
+  overflow: hidden;
+  padding: 12px;
+}
+
+.digital-icons .card[aria-label="Freelancer Profile"] img {
+  display: block;
+  width: 100%;
+  max-width: 88px;
+  height: auto;
+  max-height: 42px;
+  object-fit: contain;
+  object-position: center;
+  flex: 0 1 auto;
+}
+
+.digital-icons .card:hover i {
+  transform: scale(1.2);
+  color: #ffffff;
+  text-shadow: 0 0 25px var(--primary-color);
+}
+
+.Resume-section {
+  background: linear-gradient(135deg, #00111a, #001f26);
+  border-radius: 16px;
+  padding: 35px 20px;
+  margin: 30px auto;
+  border: 1px solid var(--glass-border);
+  width: 100%;
+}
+
+.Resume-container {
+  background: linear-gradient(145deg, #001a17, #001133);
+  padding: 25px 18px;
+  border-radius: 14px;
+  text-align: center;
+  border: 1px solid rgba(0, 255, 213, 0.15);
+  width: 100%;
+}
+
+.Resume-container p {
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  color: #000;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px rgba(0, 255, 213, 0.4);
+  max-width: 100%;
+}
+
+.resume-btn:hover {
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 0 30px var(--primary-color);
+}
+
+.contact-card {
+  position: relative;
+  padding: 24px 16px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #001a17, #001133);
+  text-align: center;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(0, 255, 213, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.contact-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 16px;
+  background: linear-gradient(120deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+  z-index: -1;
+  opacity: .3;
+}
+
+.contact-card::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: rotate(25deg);
+  transition: all 0.6s ease;
+}
+
+.contact-card:hover::after {
+  top: 100%;
+  left: 100%;
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 30px rgba(0, 255, 213, 0.5);
+  border-color: var(--primary-color);
+}
+
+.email-link {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: inherit;
+}
+
+.contact-icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, var(--primary-color), #003d35);
+  box-shadow: 0 0 20px var(--primary-color);
+  animation: pulse 2.5s infinite ease-in-out;
+  flex-shrink: 0;
+}
+
+.contact-icon i {
+  font-size: 24px;
+  color: #000;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 12px var(--primary-color); }
+  50% { box-shadow: 0 0 28px var(--primary-color); }
+  100% { box-shadow: 0 0 12px var(--primary-color); }
+}
+
+.contact-card p {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}
+
+footer {
+  padding: 25px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  margin-top: 20px;
+  width: 100%;
+}
+
+footer hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+  margin-bottom: 15px;
+}
+
+footer p {
+  font-size: 13px;
+  color: #888;
+}
+
+@media (max-width: 900px) {
+  .mobile-header {
+    display: flex;
+  }
+
+  nav {
+    transform: translateX(-100%);
+    width: 270px;
+    padding-top: 80px;
+    box-shadow: 5px 0 25px rgba(0,0,0,0.9);
+  }
+
+  nav.active {
+    transform: translateX(0);
+  }
+
+  main {
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-top: 60px;
+  }
+
+  .hero {
+    padding: 35px 20px;
+    min-height: auto;
+  }
+
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 25px;
+  }
+
+  .hero-image-wrapper {
+    order: -1;
+  }
+
+  .hero-image {
+    max-width: 260px;
+  }
+
+  section {
+    padding: 35px 16px;
+  }
+
+  .exp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-text h2 {
+    font-size: clamp(1.45rem, 7.6vw, 2.5rem);
+    line-height: 1.2;
+    white-space: nowrap;
+    word-break: normal;
+    overflow-wrap: normal;
+    letter-spacing: 1px;
+  }
+
+  .hero-text p {
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 6px 12px;
+  }
+
+  .hero-image {
+    max-width: 220px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .brands-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .digital-icons {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: 100%;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .Resume-section {
+    padding: 25px 12px;
+  }
+
+  .resume-btn {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+}
 </style>
 </head>
 
@@ -358,65 +820,85 @@ footer p{font-size:13px;color:#aaa;}
 
 <div class="logo-rain-global" id="logoRain"></div>
 
-<nav>
-<h1 onclick="location.href='#home'">BS</h1>
-<a href="#home">HOME</a>
-<a href="#aboutme">ABOUT ME</a>
-<a href="#brands">BRANDS</a>
-<a href="#skills">SKILLS</a>
-<a href="#certifications">CERTIFICATIONS</a>
-<a href="#Resume">Resume</a>
-<a href="#experience">EXPERIENCE</a>
-<a href="#digital">DIGITAL</a>
-<a href="#contact">CONTACT</a>
+<div class="mobile-header">
+  <h1 onclick="scrollToSection('home')">BS</h1>
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation menu">
+    <i class="fas fa-bars"></i>
+  </button>
+</div>
+
+<div class="nav-overlay" id="navOverlay"></div>
+
+<nav id="sidebarNav">
+  <h1 onclick="scrollToSection('home')">BS</h1>
+  <div class="nav-links">
+    <a href="#home" class="nav-item">HOME</a>
+    <a href="#aboutme" class="nav-item">ABOUT ME</a>
+    <a href="#brands" class="nav-item">BRANDS</a>
+    <a href="#skills" class="nav-item">SKILLS</a>
+    <a href="#certifications" class="nav-item">CERTIFICATIONS</a>
+    <a href="#Resume" class="nav-item">RESUME</a>
+    <a href="#experience" class="nav-item">EXPERIENCE</a>
+    <a href="#digital" class="nav-item">DIGITAL</a>
+    <a href="#contact" class="nav-item">CONTACT</a>
+  </div>
 </nav>
 
 <main>
 
 <section class="hero show" id="home">
-<div class="hero-content">
-<div class="hero-text">
-<h2>Binara <span>Sudheera</span></h2>
-<p>SOCIAL MEDIA MANAGER</p>
-</div>
-<img class="hero-image" src="https://media.licdn.com/dms/image/v2/D4E03AQEYSm-OVaqdbw/profile-displayphoto-scale_200_200/B4EZkLL2sEGYAY-/0/1756829281913?e=2147483647&v=beta&t=Q6XNLcT42rNS8aS3HVnr2pNWUlehr_IMKYvAnq_Uwvs">
-</div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <h2>Binara <span>Sudheera</span></h2>
+      <p>SOCIAL MEDIA MANAGER</p>
+    </div>
+    <div class="hero-image-wrapper">
+      <img class="hero-image" src="https://media.licdn.com/dms/image/v2/D4E03AQEYSm-OVaqdbw/profile-displayphoto-scale_200_200/B4EZkLL2sEGYAY-/0/1756829281913?e=2147483647&v=beta&t=Q6XNLcT42rNS8aS3HVnr2pNWUlehr_IMKYvAnq_Uwvs" alt="Binara Sudheera - Social Media Manager">
+    </div>
+  </div>
 </section>
 
-<!-- ABOUT ME -->
-<section id="aboutme"><h2>ABOUT ME</h2>
-<p>Hello, I'm Binara Sudheera. I am currently an undergraduate at Saegis Campus, pursuing a Degree in Data Analytics. Alongside my studies, and I am a becoming Social Media Manager. Social media management is a key career path for me. I also plan to take on freelance projects in the future.For all of that,currently pursuing the complete Meta Digital Marketing specialization on Coursera, including social media marketing and related modules.
-Former active member of AIESEC at Saegis Campus, serving as OCVP for the Explore Event. I am passionate about building a career in both IT and social media management and continuously seek opportunities to grow professionally..
-</p></section>
+<section id="aboutme">
+  <h2>ABOUT ME</h2>
+  <p>
+    Hello, I'm Binara Sudheera. I am currently an undergraduate at Saegis Campus, pursuing a Degree in Data Analytics. Alongside my studies, and I am a becoming Social Media Manager. Social media management is a key career path for me. I also plan to take on freelance projects in the future.For all of that,currently pursuing the complete Meta Digital Marketing specialization on Coursera, including social media marketing and related modules.
+    Former active member of AIESEC at Saegis Campus, serving as OCVP for the Explore Event. I am passionate about building a career in both IT and social media management and continuously seek opportunities to grow professionally..
+  </p>
+</section>
 
-<!-- BRANDS -->
-<section id="brands"><h2>BRANDS</h2>
-<div class="brands-grid">
-<div class="brand-card"><img src="https://yt3.ggpht.com/v2-5XIbzcNaHQez9efbDmgLLJkk0iVqITlqpqqCP4uj-RIpVxU67S2zT_cILCL4EliDEnAQzKOQ=s176-c-k-c0x00ffffff-no-rj"></div>
-<div class="brand-card"><img src="https://media.licdn.com/dms/image/v2/D4E0BAQFaNw_UkG8BCg/company-logo_100_100/B4EZkVb865IQAY-/0/1757001273743?e=1790812800&v=beta&t=ONWxfQw_VLEHXdNCZe_TO6jh0aVOrhueJWQs-U3_eFU"></div>
-</div></section>
+<section id="brands">
+  <h2>BRANDS</h2>
+  <div class="brands-grid">
+    <div class="brand-card">
+      <img src="https://yt3.ggpht.com/v2-5XIbzcNaHQez9efbDmgLLJkk0iVqITlqpqqCP4uj-RIpVxU67S2zT_cILCL4EliDEnAQzKOQ=s176-c-k-c0x00ffffff-no-rj" alt="Brand Logo 1">
+    </div>
+    <div class="brand-card">
+      <img src="https://media.licdn.com/dms/image/v2/D4E0BAQFaNw_UkG8BCg/company-logo_100_100/B4EZkVb865IQAY-/0/1757001273743?e=1790812800&v=beta&t=ONWxfQw_VLEHXdNCZe_TO6jh0aVOrhueJWQs-U3_eFU" alt="Brand Logo 2">
+    </div>
+  </div>
+</section>
 
 <section id="skills">
-<h2>SKILLS & ABILITIES</h2>
+  <h2>SKILLS & ABILITIES</h2>
 
-<h3 style="margin:15px 0;color:#00ffd5;">Technical & Digital Skills</h3>
-<div class="grid">
-<div class="card">Social Media Management (Beginner)</div>
-<div class="card">Brand Marketing (Beginner)</div>
-<div class="card">Content Creation (Beginner)</div>
-<div class="card">Adobe Photoshop (Experienced)</div>
-<div class="card">Canva Pro (Experienced)</div>
-<div class="card">CapCut (Beginner)</div>
-<div class="card">Event Management (Beginner)</div>
-</div>
+  <h3 style="margin:20px 0 15px; color:#00ffd5; font-size:17px; font-family:'Orbitron',sans-serif;">Technical & Digital Skills</h3>
+  <div class="grid">
+    <div class="card">Social Media Management (Beginner)</div>
+    <div class="card">Brand Marketing (Beginner)</div>
+    <div class="card">Content Creation (Beginner)</div>
+    <div class="card">Adobe Photoshop (Experienced)</div>
+    <div class="card">Canva Pro (Experienced)</div>
+    <div class="card">CapCut (Beginner)</div>
+    <div class="card">Event Management (Beginner)</div>
+  </div>
 
-<h3 style="margin:20px 0 10px;color:#00ffd5;">Professional & Soft Skills</h3>
-<div class="grid">
-<div class="card">Communication</div>
-<div class="card">Leadership</div>
-</div>
+  <h3 style="margin:25px 0 15px; color:#00ffd5; font-size:17px; font-family:'Orbitron',sans-serif;">Professional & Soft Skills</h3>
+  <div class="grid">
+    <div class="card">Communication</div>
+    <div class="card">Leadership</div>
+  </div>
+</section>
 
-<!-- CERTIFICATIONS -->
 <section id="certifications">
   <h2>CERTIFICATIONS</h2>
 
@@ -427,15 +909,11 @@ Former active member of AIESEC at Saegis Campus, serving as OCVP for the Explore
       <h3>Meta Digital Marketing Associate Certification</h3>
       <h4>Coursera / Meta</h4>
       <span class="exp-date">Completed – 2026</span>
-
       <p>
         Focused on digital marketing fundamentals, including brand awareness,
         paid advertising, audience targeting, and performance measurement.
       </p>
-
-      <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~TSJIEYKLFGND/CERTIFICATE_LANDING_PAGE~TSJIEYKLFGND.jpeg"
-           style="width:100%;margin-top:12px;border-radius:10px;
-           box-shadow:0 0 20px rgba(0,255,213,.4);">
+      <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~TSJIEYKLFGND/CERTIFICATE_LANDING_PAGE~TSJIEYKLFGND.jpeg" alt="Meta Digital Marketing Associate Certification">
     </div>
 
     <!-- CERTIFICATION 2 -->
@@ -443,15 +921,11 @@ Former active member of AIESEC at Saegis Campus, serving as OCVP for the Explore
       <h3>Meta Social Media Marketing Professional Certificate</h3>
       <h4>Coursera / Meta</h4>
       <span class="exp-date">Completed – 2026</span>
-
       <p>
         Comprehensive training in social media strategy, content creation,
         advertising, analytics, and campaign optimization.
       </p>
-
-      <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~CCC6CXN6DBEP/CERTIFICATE_LANDING_PAGE~CCC6CXN6DBEP.jpeg"
-           style="width:100%;margin-top:12px;border-radius:10px;
-           box-shadow:0 0 20px rgba(0,255,213,.4);">
+      <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~CCC6CXN6DBEP/CERTIFICATE_LANDING_PAGE~CCC6CXN6DBEP.jpeg" alt="Meta Social Media Marketing Professional Certificate">
     </div>
 
     <!-- CERTIFICATION 3 -->
@@ -459,15 +933,11 @@ Former active member of AIESEC at Saegis Campus, serving as OCVP for the Explore
       <h3>Fundamentals of Social Media Advertising</h3>
       <h4>Coursera / Meta</h4>
       <span class="exp-date">Completed – 2026</span>
-
       <p>
         Focused on social media advertising fundamentals, including ad creation,
         audience targeting, budgeting, ad formats, and campaign performance tracking.
       </p>
-
-      <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~5QVVG3R3QIUL/CERTIFICATE_LANDING_PAGE~5QVVG3R3QIUL.jpeg"
-           style="width:100%;margin-top:12px;border-radius:10px;
-           box-shadow:0 0 20px rgba(0,255,213,.4);">
+      <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~5QVVG3R3QIUL/CERTIFICATE_LANDING_PAGE~5QVVG3R3QIUL.jpeg" alt="Fundamentals of Social Media Advertising Certificate">
     </div>
 
     <!-- CERTIFICATION 4 -->
@@ -475,15 +945,11 @@ Former active member of AIESEC at Saegis Campus, serving as OCVP for the Explore
       <h3>Advertising with Meta</h3>
       <h4>Coursera / Meta</h4>
       <span class="exp-date">Completed – 2026</span>
-
       <p>
         Focused on creating and managing Meta advertising campaigns, including
         campaign objectives, audience targeting, budgeting, placements, and scheduling.
       </p>
-
-      <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~78YPMJIM791Q/CERTIFICATE_LANDING_PAGE~78YPMJIM791Q.jpeg"
-           style="width:100%;margin-top:12px;border-radius:10px;
-           box-shadow:0 0 20px rgba(0,255,213,.4);">
+      <img src="https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~78YPMJIM791Q/CERTIFICATE_LANDING_PAGE~78YPMJIM791Q.jpeg" alt="Advertising with Meta Certificate">
     </div>
 
     <!-- CERTIFICATION 5 -->
@@ -491,128 +957,115 @@ Former active member of AIESEC at Saegis Campus, serving as OCVP for the Explore
       <h3>Measure and Optimize Social Media Marketing Campaigns</h3>
       <h4>Coursera / Meta</h4>
       <span class="exp-date">Completed – 2026</span>
-
       <p>
         Learned how to measure, analyze, and optimize social media marketing campaigns using key performance metrics,
         A/B testing, audience insights, conversion tracking, and ROAS to improve campaign performance
       </p>
-
-      <img src="https://coursera-certificate-images.s3.amazonaws.com/2QMX2GADD6V0"
-           style="width:100%;margin-top:12px;border-radius:10px;
-           box-shadow:0 0 20px rgba(0,255,213,.4);">
+      <img src="https://media.licdn.com/dms/image/v2/D562DAQHpuLRCS5Xr5A/profile-treasury-document-cover-images_800/B56Z9Wg2SfGQA8-/0/1783862881273?e=1791003600&v=beta&t=JVwiN16G3aZCNlnmNlBSv9GzblIns0H8T-P-aGjBdmc">
     </div>
 
   </div>
 </section>
 
-
-<!-- Resume -->
 <section id="Resume" class="Resume-section">
-<div class="container">
-<h2>Download My Resume Here</h2>
+  <h2>RESUME</h2>
 
-<div class="Resume-container">
+  <div class="Resume-container">
     <p>Download my resume to explore my qualifications and career background in detail.</p>
 
-    <a href="https://drive.google.com/file/d/1_eve9BHCHXSAM_MlGTNPRSNGRSWB0DeJ/view?usp=sharing" target="_blank" class="resume-btn">
-    <i class="fas fa-download"></i>
-    Download My Resume
-</a>
-
-</div>
-</div>
+    <a href="https://drive.google.com/file/d/1_eve9BHCHXSAM_MlGTNPRSNGRSWB0DeJ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="resume-btn">
+      <i class="fas fa-download"></i>
+      Download My Resume
+    </a>
+  </div>
 </section>
 
-<!-- EXPERIENCE -->
-<section id="experience"><h2>EXPERIENCE</h2>
-<div class="exp-grid">
-<div class="exp-box">
-<h3>Leading Role</h3>
-<h4>SBR Digital Marketing Solutions</h4>
-<span class="exp-date">Aug 2025 – Temporarily Closed</span>
-<p>Running a social media marketing team delivering campaign strategy, content creation, and brand growth solutions for SMEs.</p>
-</div>
-<div class="exp-box">
-  <h3>Facebook Marketplace & Social Media Assistant</h3>
-  <h4>Luxtide Collections</h4>
-  <span class="exp-date">Feb 2026 – Present | Remote · Part-Time</span>
-  <p>Posted and managed products on Facebook Marketplace, shared listings across relevant Facebook groups, and responded to customer messages and inquiries to support product visibility engagement and Facebook Marketplace Adds</p>
-</div>
- <div class="exp-box">
+<section id="experience">
+  <h2>EXPERIENCE</h2>
+  <div class="exp-grid">
+    <div class="exp-box">
+      <h3>Leading Role</h3>
+      <h4>SBR Digital Marketing Solutions</h4>
+      <span class="exp-date">Aug 2025 – Temporarily Closed</span>
+      <p>Running a social media marketing team delivering campaign strategy, content creation, and brand growth solutions for SMEs.</p>
+    </div>
+
+    <div class="exp-box">
+      <h3>Facebook Marketplace & Social Media Assistant</h3>
+      <h4>Luxtide Collections</h4>
+      <span class="exp-date">Feb 2026 – Present | Remote · Part-Time</span>
+      <p>Posted and managed products on Facebook Marketplace, shared listings across relevant Facebook groups, and responded to customer messages and inquiries to support product visibility engagement and Facebook Marketplace Adds</p>
+    </div>
+
+    <div class="exp-box">
       <h3>Digital Marketing & Social Media Assistant</h3>
       <h4>Talent Core Business Solutions (Pvt) Ltd.</h4>
       <span class="exp-date">Mar 2026 – Apr 2026</span>
       <p>Designed promotional graphics and marketing materials using Canva and Adobe Photoshop, contributing to improved brand visibility and campaign engagement.</p>
     </div>
 
-<div class="exp-box">
-<h3>Digital Marketing Intern</h3>
-<h4>Colombo Perpetual Real Estate</h4>
-<span class="exp-date">Dec 2025 – Jan 2026</span>
-<p>Managed real estate social media campaigns, designed creatives, and promoted property listings through digital platforms.</p>
-</div>
-<div class="exp-box">
-<h3>OCVP – Xplore 2025</h3>
-<h4>AIESEC in Saegis</h4>
-<span class="exp-date">Apr 2025 – Jul 2025</span>
-<p>Led event promotions and executed targeted social media campaigns to attract participants.</p>
-</div>
-<div class="exp-box">
-<h3>Brand Marketing</h3>
-<h4>AIESEC in Saegis</h4>
-<span class="exp-date">Feb 2025 – Jul 2025</span>
-<p>Created campaign creatives and branding content for organizational events.</p>
-</div>
-<div class="exp-box">
-<h3>Outgoing Global Talent</h3>
-<h4>AIESEC in Saegis</h4>
-<span class="exp-date">Feb 2025 – Jul 2025</span>
-<p>Promoted global internships and guided students through recruitment.</p>
-</div>
-<div class="exp-box">
-<h3>Student Forum</h3>
-<h4>Saegis Campus</h4>
-<span class="exp-date">Jul 2024 – Present</span>
-<p>Active contributor to student engagement and campus initiatives.</p>
-</div>
-</div>
+    <div class="exp-box">
+      <h3>Digital Marketing Intern</h3>
+      <h4>Colombo Perpetual Real Estate</h4>
+      <span class="exp-date">Dec 2025 – Jan 2026</span>
+      <p>Managed real estate social media campaigns, designed creatives, and promoted property listings through digital platforms.</p>
+    </div>
+
+    <div class="exp-box">
+      <h3>OCVP – Xplore 2025</h3>
+      <h4>AIESEC in Saegis</h4>
+      <span class="exp-date">Apr 2025 – Jul 2025</span>
+      <p>Led event promotions and executed targeted social media campaigns to attract participants.</p>
+    </div>
+
+    <div class="exp-box">
+      <h3>Brand Marketing</h3>
+      <h4>AIESEC in Saegis</h4>
+      <span class="exp-date">Feb 2025 – Jul 2025</span>
+      <p>Created campaign creatives and branding content for organizational events.</p>
+    </div>
+
+    <div class="exp-box">
+      <h3>Outgoing Global Talent</h3>
+      <h4>AIESEC in Saegis</h4>
+      <span class="exp-date">Feb 2025 – Jul 2025</span>
+      <p>Promoted global internships and guided students through recruitment.</p>
+    </div>
+
+    <div class="exp-box">
+      <h3>Student Forum</h3>
+      <h4>Saegis Campus</h4>
+      <span class="exp-date">Jul 2024 – Present</span>
+      <p>Active contributor to student engagement and campus initiatives.</p>
+    </div>
+  </div>
 </section>
 
-
-<!-- DIGITAL -->
 <section id="digital">
-<h2>DIGITAL</h2>
+  <h2>DIGITAL</h2>
 
-<div class="grid digital-icons">
-
-<!-- LINKEDIN -->
-<a href="https://www.linkedin.com/in/binara-sudheera-323b9a344" target="_blank" class="card">
-<i class="fab fa-linkedin"></i>
-</a>
-
- <!-- BEHANCE -->
-    <a href="https://www.behance.net/binarasudheera" target="_blank" class="card">
-      <img src="https://img.freepik.com/premium-vector/vector-behance-apps-logo-rounded-asset-isolated_1004619-456.jpg?semt=ais_hybrid&w=740&q=80"
-           style="width:90px; height:px; object-fit:contain;">
+  <div class="grid digital-icons">
+    <!-- LINKEDIN -->
+    <a href="https://www.linkedin.com/in/binara-sudheera-323b9a344" target="_blank" rel="noopener noreferrer" class="card" aria-label="LinkedIn Profile">
+      <i class="fab fa-linkedin"></i>
     </a>
 
-  <!-- FREELANCER (image logo, bigger to match) -->
-  <a href="https://www.freelancer.com/u/binarasudheera?frm=binarasudheera&sb=t" target="_blank" class="card">
-    <img src="https://www.f-cdn.com/assets/compat/en/assets/freelancer-logo-light.svg" 
-          style="width:110px; height:110px; object-fit:contain;">
-  </a>
+    <!-- BEHANCE -->
+    <a href="https://www.behance.net/binarasudheera" target="_blank" rel="noopener noreferrer" class="card" aria-label="Behance Profile">
+      <img src="https://img.freepik.com/premium-vector/vector-behance-apps-logo-rounded-asset-isolated_1004619-456.jpg?semt=ais_hybrid&w=740&q=80" alt="Behance" style="width:70px; height: auto; object-fit:contain;">
+    </a>
 
-</div>
+    <!-- FREELANCER -->
+    <a href="https://www.freelancer.com/u/binarasudheera?frm=binarasudheera&sb=t" target="_blank" rel="noopener noreferrer" class="card" aria-label="Freelancer Profile">
+      <img src="https://www.f-cdn.com/assets/compat/en/assets/freelancer-logo-light.svg" alt="Freelancer">
+    </a>
+  </div>
 </section>
 
-
-
-<!-- CONTACT -->
 <section id="contact">
   <h2>CONTACT</h2>
 
   <div class="contact-grid">
-
     <!-- PHONE -->
     <div class="contact-card">
       <div class="contact-icon"><i class="fas fa-phone"></i></div>
@@ -621,7 +1074,7 @@ Former active member of AIESEC at Saegis Campus, serving as OCVP for the Explore
 
     <!-- EMAIL -->
     <div class="contact-card">
-      <a href="mailto:binarasudheera051@gmail.com" style="text-decoration:none; color:inherit;">
+      <a href="mailto:binarasudheera051@gmail.com" class="email-link">
         <div class="contact-icon"><i class="fas fa-envelope"></i></div>
         <p>binarasudheera051@gmail.com</p>
       </a>
@@ -632,35 +1085,90 @@ Former active member of AIESEC at Saegis Campus, serving as OCVP for the Explore
       <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
       <p>Sri Lanka</p>
     </div>
-
   </div>
 </section>
 
+<footer>
+  <hr>
+  <p>© 2026 Binara Sudheera. All Rights Reserved.</p>
+</footer>
 
-<footer><hr><p>© 2026 Binara Sudheera</p></footer>
+</main>
 
 <script>
-const sections=document.querySelectorAll("section");
-window.addEventListener("scroll",()=>{
-sections.forEach(sec=>{
-if(sec.getBoundingClientRect().top<window.innerHeight-80){
-sec.classList.add("show");
+const hamburgerBtn = document.getElementById('hamburgerBtn');
+const sidebarNav = document.getElementById('sidebarNav');
+const navOverlay = document.getElementById('navOverlay');
+const navItems = document.querySelectorAll('.nav-item');
+
+function toggleMobileNav() {
+  const isOpen = sidebarNav.classList.contains('active');
+  if (isOpen) {
+    sidebarNav.classList.remove('active');
+    navOverlay.classList.remove('active');
+    hamburgerBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    document.body.style.overflow = '';
+  } else {
+    sidebarNav.classList.add('active');
+    navOverlay.classList.add('active');
+    hamburgerBtn.innerHTML = '<i class="fas fa-xmark"></i>';
+    document.body.style.overflow = 'hidden';
+  }
 }
-});
+
+hamburgerBtn.addEventListener('click', toggleMobileNav);
+navOverlay.addEventListener('click', toggleMobileNav);
+
+navItems.forEach(item => {
+  item.addEventListener('click', () => {
+    if (window.innerWidth <= 900) {
+      toggleMobileNav();
+    }
+  });
 });
 
-const rainContainer=document.getElementById("logoRain");
-const logos=["fa-facebook-f","fa-instagram","fa-tiktok","fa-linkedin"];
-for(let i=0;i<80;i++){
-const icon=document.createElement("i");
-const randomLogo=logos[Math.floor(Math.random()*logos.length)];
-icon.className="fab "+randomLogo;
-icon.style.left=Math.random()*100+"%";
-icon.style.animationDuration=(6+Math.random()*8)+"s";
-icon.style.fontSize=(14+Math.random()*24)+"px";
-icon.style.opacity=Math.random()*0.8;
-icon.style.animationDelay=Math.random()*5+"s";
-rainContainer.appendChild(icon);
+function scrollToSection(id) {
+  const elem = document.getElementById(id);
+  if (elem) {
+    elem.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+// Section visibility observer
+const sections = document.querySelectorAll("section");
+const observerOptions = {
+  root: null,
+  threshold: 0.05,
+  rootMargin: "0px 0px -40px 0px"
+};
+
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("show");
+    }
+  });
+}, observerOptions);
+
+sections.forEach(sec => {
+  sectionObserver.observe(sec);
+});
+
+// Floating icons background
+const rainContainer = document.getElementById("logoRain");
+const logos = ["fa-facebook-f", "fa-instagram", "fa-tiktok", "fa-linkedin"];
+const particleCount = window.innerWidth < 600 ? 30 : 60;
+
+for (let i = 0; i < particleCount; i++) {
+  const icon = document.createElement("i");
+  const randomLogo = logos[Math.floor(Math.random() * logos.length)];
+  icon.className = "fab " + randomLogo;
+  icon.style.left = Math.random() * 100 + "%";
+  icon.style.animationDuration = (6 + Math.random() * 8) + "s";
+  icon.style.fontSize = (12 + Math.random() * 18) + "px";
+  icon.style.opacity = (0.2 + Math.random() * 0.4).toString();
+  icon.style.animationDelay = (Math.random() * 6) + "s";
+  rainContainer.appendChild(icon);
 }
 </script>
 
